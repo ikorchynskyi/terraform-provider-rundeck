@@ -837,6 +837,9 @@ func jobToResourceData(job *JobDetail, d *schema.ResourceData) error {
 		if err := d.Set("rank_order", job.Dispatch.RankOrder); err != nil {
 			return err
 		}
+		if err := d.Set("success_on_empty_node_filter", job.Dispatch.SuccessOnEmptyNodeFilter); err != nil {
+			return err
+		}
 	} else {
 		if err := d.Set("max_thread_count", 1); err != nil {
 			return err
